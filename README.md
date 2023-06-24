@@ -8,7 +8,7 @@ Es importante ejecutar los siguientes comandos en el mismo orden que se detallan
 
 ### `npm install`
 
-comando necesario para instalar todoas las dependencias del proyecto.
+comando necesario para instalar todas las dependencias del proyecto.
 
 ### `npm start`
 
@@ -20,8 +20,8 @@ Esta aplicación tambien se encuentra desplegada en netlify con el fin de intera
 
 Para ingresar hago uso de las siguientes credenciales:
 
-email: elkin@test.com
-constraseña: 12345678
+- **email**: elkin@test.com
+- **contraseña**: 12345678
 
 Sin embargo, por medio de la sección de registro se pueden crear nuevos usuarios.
 
