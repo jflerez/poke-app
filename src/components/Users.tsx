@@ -30,7 +30,6 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
         console.log("response pokemon: ", response);
         setUsers(response.data);
 
-        //   IF EMAIL ALREADY EXISTS
         if (!response.data.success) {
           toast.error(response.data.error, {
             position: "top-right",
@@ -57,8 +56,20 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
       })
 
       .catch(function (error) {
-        console.log("error generado: ", error);
-        logout();
+        console.log("error in get users: ", error);
+        toast.error(error.response.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
+        if (error?.response?.status === 401) {
+          logout();
+        }
       });
   };
 

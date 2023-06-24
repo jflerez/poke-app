@@ -29,7 +29,6 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
         console.log("response pokemon: ", response);
         setPokemons(response.data);
 
-        //   IF EMAIL ALREADY EXISTS
         if (!response.data.success) {
           toast.error(response.data.error, {
             position: "top-right",
@@ -56,7 +55,20 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
       })
 
       .catch(function (error) {
-        console.log(error);
+        console.log("error in get pokemons: ", error.response.status);
+        toast.error(error.response.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
+        if (error?.response?.status === 401) {
+          logout();
+        }
       });
   };
 
@@ -78,7 +90,6 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
       .then(function (response) {
         console.log("response pokemon: ", response);
 
-        //   IF EMAIL ALREADY EXISTS
         if (!response.data.success) {
           toast.error(response.data.error, {
             position: "top-right",
@@ -105,7 +116,20 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
       })
 
       .catch(function (error) {
-        console.log(error);
+        console.log("error in get pokemons: ", error.response.status);
+        toast.error(error.response.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
+        if (error?.response?.status === 401) {
+          logout();
+        }
       });
   };
 
@@ -128,7 +152,7 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
         }}
       >
         <div>
-          <h3 className="m-3">Pokemones</h3>
+          <h3 className="m-3">Pokemons</h3>
         </div>
         <div>
           <button type="submit" className="buttons" onClick={logout}>

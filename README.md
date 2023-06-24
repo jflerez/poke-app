@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Consideraciones para poner en marcha la aplicación en ambiente local
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Ejecución de scripts
 
-In the project directory, you can run:
+Es importante ejecutar los siguientes comandos en el mismo orden que se detallan a continuación:
+
+### `npm install`
+
+comando necesario para instalar todoas las dependencias del proyecto.
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Levanta la aplicación y la abre en el [http://localhost:3000](http://localhost:3000) del navegador.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Acceder a la aplicación desplegada
 
-### `npm test`
+Esta aplicación tambien se encuentra desplegada en netlify con el fin de interactuar con ella sin la necesidad de realizar las configuraciones mencionadas anteriormente, para ello accedemos desde el navegador a la siguiente url: [https://6496f93fe163ac6601e8f40d--musical-moonbeam-0d6a43.netlify.app/](https://6496f93fe163ac6601e8f40d--musical-moonbeam-0d6a43.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para ingresar hago uso de las siguientes credenciales:
 
-### `npm run build`
+email: elkin@test.com
+constraseña: 12345678
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Sin embargo, por medio de la sección de registro se pueden crear nuevos usuarios.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Sección de login
 
-### `npm run eject`
+![Alt text](./docs/image-6.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Sección de registro de nuevos usuarios
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Alt text](./docs/image-7.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Sección de listado de pokemons con opción de marcarlos como favoritos
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Alt text](./docs/image-8.png)
 
-## Learn More
+## Sección de listado de usuarios
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Alt text](./docs/image-9.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Sección de listado de pokemons marcados como favoritos con opción de eliminarlos
+
+![Alt text](./docs/image-10.png)
+
+

@@ -29,9 +29,9 @@ const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
         params
       )
       .then(function (response) {
-        //   IF EMAIL ALREADY EXISTS
-        if (!response.data.success) {
-          toast.error(response.data.error, {
+        console.log("error login: ", !response?.data?.success);
+        if (!response?.data?.success) {
+          toast.error(response.data.message, {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: true,
@@ -60,7 +60,17 @@ const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
       })
 
       .catch(function (error) {
-        console.log(error);
+        console.log("error in login: ", error);
+        toast.error(error.response.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
       });
   };
 

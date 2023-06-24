@@ -38,7 +38,6 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
         console.log("response pokemon: ", response);
         setPokemons(response.data);
 
-        //   IF EMAIL ALREADY EXISTS
         if (!response.data.success) {
           toast.error(response.data.error, {
             position: "top-right",
@@ -65,8 +64,20 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
       })
 
       .catch(function (error) {
-        console.log("error generado: ", error);
-        logout();
+        console.log("error in get pokemons favorites: ", error);
+        toast.error(error.response.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
+        if (error?.response?.status === 401) {
+          logout();
+        }
       });
   };
 
@@ -89,7 +100,6 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
         console.log("response pokemon: ", response);
         setPokemons(response.data.favorites);
 
-        //   IF EMAIL ALREADY EXISTS
         if (!response.data.success) {
           toast.error(response.data.error, {
             position: "top-right",
@@ -116,16 +126,31 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
       })
 
       .catch(function (error) {
-        console.log(error);
+        console.log("error in remove favorite pokemons: ", error);
+        toast.error(error.response.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
+        if (error?.response?.status === 401) {
+          logout();
+        }
       });
   };
 
   useEffect(() => {
-    getPokemonsFavorites();
+    if (!pokemonsFavorites.length) {
+      getPokemonsFavorites();
+    }
     return () => {
       console.log("El componente se ha desmontado");
     };
-  }, []);
+  });
 
   return (
     <>
@@ -139,7 +164,7 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
         }}
       >
         <div>
-          <h3 className="m-3">Pokemones favoritos</h3>
+          <h3 className="m-3">Pokemons favoritos</h3>
         </div>
         <div>
           <button type="submit" className="buttons" onClick={logout}>
@@ -156,14 +181,9 @@ const Home: FC<SomeComponentProps> = ({ history }) => {
                   <div className="card profile-card-1">
                     <img
                       src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb"
-                      alt="profile-sample1"
                       className="background"
                     />
-                    <img
-                      src={pokemon["image"]}
-                      alt="profile-image"
-                      className="profile"
-                    />
+                    <img src={pokemon["image"]} className="profile" />
                     <div className="card-content">
                       <h2>
                         {pokemon["name"]} <small>Engineer</small>

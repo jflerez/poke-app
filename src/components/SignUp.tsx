@@ -109,7 +109,9 @@ const SignUp: FC<SomeComponentProps> = ({ history }) => {
                       type="email"
                       className="form-control form-control-sm"
                       id="exampleFormControlInput3"
-                      {...register("email", { required: "Email es obligatorio!" })}
+                      {...register("email", {
+                        required: "Email es obligatorio!",
+                      })}
                     />
                     {errors.email && (
                       <p className="text-danger" style={{ fontSize: 14 }}>
